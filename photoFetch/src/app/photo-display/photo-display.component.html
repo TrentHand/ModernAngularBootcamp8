@@ -1,1 +1,5 @@
-<p>photo-display works!</p>
+<div class="" *ngFor="let photo of displayPhotos">
+  <img [src]="photo" alt="My Photo" />
+</div>
+
+<button (click)="getNewPhoto()">Get new photo</button>
