@@ -4,22 +4,31 @@
     [control]="cardForm.get('cardNumber')"
     label="Card Number"
   ></app-input>
-  <app-input
-    [control]="cardForm.get('expiration')"
-    label="Expiration"
-  ></app-input>
-  <app-input
-    [control]="cardForm.get('securityCode')"
-    label="Security Code"
-  ></app-input>
+  <div class="columns">
+    <div class="column">
+      <app-input
+        [control]="cardForm.get('expiration')"
+        label="Expiration"
+      ></app-input>
+    </div>
+    <div class="column">
+      <app-input
+        [control]="cardForm.get('securityCode')"
+        label="Security Code"
+      ></app-input>
+    </div>
+  </div>
 
-  <button type="submit" [disabled]="cardForm.invalid" class="button is-primary">
-    Submit
-  </button>
+  <div class="buttons">
+    <button
+      type="submit"
+      [disabled]="cardForm.invalid"
+      class="button is-primary"
+    >
+      Submit
+    </button>
+    <button type="button" class="button is-warning" (click)="onResetClick()">
+      Reset
+    </button>
+  </div>
 </form>
-
-<div class="">Form Contents: {{ cardForm.value | json }}</div>
-<div class="">Form is valid: {{ cardForm.valid }}</div>
-<div class="">
-  Errors around name: {{ cardForm.controls.name.errors | json }}
-</div>
